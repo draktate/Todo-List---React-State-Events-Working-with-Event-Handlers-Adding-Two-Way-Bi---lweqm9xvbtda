@@ -27,7 +27,7 @@ function EditTask(props)
 	{	
 		return (<div> 
 		<input type="textarea" id="task" value={editTask} onChange={(event)=>{setEditTask(event.target.value);}}/>
-		<button id="saveButton" onClick={saveTask}  disabled= {!editTask} > Save </button>
+		<button id="saveButton" className="saveTask" onClick={saveTask}  disabled= {!editTask} > Save </button>
 		 </div>); 
 	}
 	else 

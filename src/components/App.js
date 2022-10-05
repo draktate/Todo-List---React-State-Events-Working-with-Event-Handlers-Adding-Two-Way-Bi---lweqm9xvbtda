@@ -24,7 +24,7 @@ function Apps()
 		let newContent= newTasks.map((item, index)=>
 		{ 
 			return <li key={index} id={"li_"+ index} className="list" value={item} > {item} <br/>
-			<button id={"Add_"+index} value={index} onClick={editTask}> Edit </button> <button id={"Del_"+index}  value={index} onClick={deleteTask}> Delete </button> </li>       
+			<button id={"Add_"+index} value={index} className="editTask" onClick={editTask}> Edit </button> <button id={"Del_"+index}  value={index} onClick={deleteTask}> Delete </button> </li>       
 		}
 		);
 
@@ -45,7 +45,7 @@ function Apps()
 		let newContent= newTasks.map((item, index)=>
 		{ 
 			return <li key={index} id={"li_"+ index} className="list" value={item} > {item} <br/>
-			<button id={"Add_"+index} value={index} onClick={editTask}> Edit </button> <button id={"Del_"+index}  value={index} onClick={deleteTask}> Delete </button> </li>       
+			<button id={"Add_"+index} className="editTask" value={index} onClick={editTask}> Edit </button> <button id={"Del_"+index}  value={index} onClick={deleteTask}> Delete </button> </li>       
 		}
 		);
 
@@ -67,7 +67,7 @@ function Apps()
 		let newContent= newTasks.map((item, index)=>
 		{ 
 			return <li key={index} id={"li_"+ index} className="list" value={item} > {item} <br/> 
-			<button id={"Add_"+index} value={index} onClick={editTask}> Edit </button>	 <button id={"Del_"+index} value={index} onClick={deleteTask}> Delete </button>  <EditTask task={item} etask={etask} setEtask={setEtask} index={index} tasks={tasks} setTasks={setTasks}/></li>       
+			<button id={"Add_"+index} value={index} className="editTask" onClick={editTask}> Edit </button>	 <button id={"Del_"+index} value={index} onClick={deleteTask}> Delete </button>  <EditTask task={item} etask={etask} setEtask={setEtask} index={index} tasks={tasks} setTasks={setTasks}/></li>       
 		}
 		);
 
@@ -85,7 +85,7 @@ function Apps()
 		let newContent= newTasks.map((item, index)=>
 		{ 
 			return <li key={index} id={"li_"+ index} className="list" value={item} > {item} <br/>
-			<button id={"Add_"+index} value={index} onClick={editTask}> Edit </button> <button id={"Del_"+index} value={index} onClick={deleteTask}> Delete </button>  <EditTask task={item} etask={etask} index={index} tasks={tasks} setEtask={setEtask} setTasks={setTasks}/></li>       
+			<button id={"Add_"+index} value={index}  className="editTask" onClick={editTask}> Edit </button> <button id={"Del_"+index} value={index} onClick={deleteTask}> Delete </button>  <EditTask task={item} etask={etask} index={index} tasks={tasks} setEtask={setEtask} setTasks={setTasks}/></li>       
 		}
 		);
 

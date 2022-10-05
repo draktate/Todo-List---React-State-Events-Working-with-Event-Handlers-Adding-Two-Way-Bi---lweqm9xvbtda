@@ -9,88 +9,56 @@ function Apps()
 	const [task, setTask]=useState();
 	const [etask, setEtask]=useState(-1);
 	
-	const editTask=(event)=>
+
+
+	const createContent=(newTasks)=>
 	{
-		setEtask(event.target.value);
-		console.log("Edit task", event.target.value);
-		
-	}
 
-
-
-	const deleteTask=(event)=>{
-		let newTasks = tasks;
-		newTasks.splice(event.target.value,1);
+		//console.log("createContet");
 		let newContent= newTasks.map((item, index)=>
 		{ 
-			return <li key={index} id={"li_"+ index} className="list" value={item} > {item} <br/>
-			<button id={"Add_"+index} value={index} className="editTask" onClick={editTask}> Edit </button> <button id={"Del_"+index}  value={index} onClick={deleteTask}> Delete </button> </li>       
-		}
-		);
+			return <li key={index} id={"li_"+ index} className="list" value={item} >
+				<EditTask task={item}  index={index} tasks={tasks} setTasks={setTasks}/>  
+			 </li>       
+		});
 
-		setTasks(newTasks);
-		//console.log("newTasks:", newTasks)
-		setContent(newContent);
-
-
+		return newContent;
 
 	}
+
 
 	const addTask=()=>{
 		if(!task) return;
 
 		let newTasks = tasks;
 		newTasks.push(task); 
-		
-		let newContent= newTasks.map((item, index)=>
-		{ 
-			return <li key={index} id={"li_"+ index} className="list" value={item} > {item} <br/>
-			<button id={"Add_"+index} className="editTask" value={index} onClick={editTask}> Edit </button> <button id={"Del_"+index}  value={index} onClick={deleteTask}> Delete </button> </li>       
-		}
-		);
 
-		//let testContent= newTasks.map((item, index)=> { console.log(index)});
-		
+
 		setTasks(newTasks);
 		setTask("");
-		//console.log("newTasks:", newTasks)
-		setContent(newContent);
+		setContent(createContent(newTasks));		
+
+		
 	
 	};
 
 	useEffect(()=>{ 
-		console.log("tasks are updated")
+		//console.log("tasks are updated")
 
 		let newTasks = tasks;
 		//newTasks.push(task); 
-		
-		let newContent= newTasks.map((item, index)=>
-		{ 
-			return <li key={index} id={"li_"+ index} className="list" value={item} > {item} <br/> 
-			<button id={"Add_"+index} value={index} className="editTask" onClick={editTask}> Edit </button>	 <button id={"Del_"+index} value={index} onClick={deleteTask}> Delete </button>  <EditTask task={item} etask={etask} setEtask={setEtask} index={index} tasks={tasks} setTasks={setTasks}/></li>       
-		}
-		);
 
-		setContent(newContent);
+		setContent(createContent(newTasks));		
 
 	},[tasks])
 
 
-	useEffect(()=>{},[etask]);
 	useEffect(()=>{
 		
 		let newTasks = tasks;
 		//newTasks.push(task); 
 		
-		let newContent= newTasks.map((item, index)=>
-		{ 
-			return <li key={index} id={"li_"+ index} className="list" value={item} > {item} <br/>
-			<button id={"Add_"+index} value={index}  className="editTask" onClick={editTask}> Edit </button> <button id={"Del_"+index} value={index} onClick={deleteTask}> Delete </button>  <EditTask task={item} etask={etask} index={index} tasks={tasks} setEtask={setEtask} setTasks={setTasks}/></li>       
-		}
-		);
-
-		setContent(newContent)
-		
+		setContent(createContent(newTasks));				
 
 	},[etask]);
 

@@ -52,6 +52,7 @@ function Apps()
 		//let testContent= newTasks.map((item, index)=> { console.log(index)});
 		
 		setTasks(newTasks);
+		setTask("");
 		//console.log("newTasks:", newTasks)
 		setContent(newContent);
 	

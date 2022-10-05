@@ -77,7 +77,7 @@ function EditTask(props)
 
 
 		return (<> 
-		<input type="textarea" id="task" value={task} disabled={disabled} onChange={(event)=>{setTask(event.target.value);}}/>
+		<input type="textarea" key={props.index} id={"tsk_"+props.index} value={task} disabled={disabled} onChange={(event)=>{setTask(event.target.value);}}/>
 		<button id={"Edit_"+props.index} value={props.index} className="editTask" disabled={!showEdit} onClick={editTask}> Edit </button> 
 		<button id={"Del_"+props.index}  value={props.index} onClick={deleteTask}> Delete </button>
 		<button id="saveButton" className="saveTask" onClick={saveTask}  disabled= {saveDisabled || !task} > Save </button>
